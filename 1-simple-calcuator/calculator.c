@@ -37,6 +37,7 @@ int main() {
 			last_operator = ch;
 			operand = 0;
 		}
+    // Homework: when receiving 2 newline charactors, clear remembered result.
 	}
 
 	return 0;
