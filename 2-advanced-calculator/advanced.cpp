@@ -12,6 +12,12 @@ using std::vector;
 vector<char> op_stack;
 vector<double> num_stack;
 
+/**
+ * Process the last operator in the stack.
+ *
+ * It is guaranteed that when this function is called, there is always at least
+ * one operator in op_stack, and two numbers in num_stack.
+ */
 void process_last_operator() {
   // Takes 2 numbers from stack.
   double right_operand = num_stack.back();
@@ -49,7 +55,7 @@ void process_last_operator() {
 }
 
 /**
- * HOMEWORK 3*
+ * HOMEWORK 3 (Optional)
  * During testing you should have noticed that "^2" and "+1*2" are both valid
  * expressions for our current implementation. When an operand is not supplied,
  * it is considered 0. This can be confusing because "1/" will throw an "divided
