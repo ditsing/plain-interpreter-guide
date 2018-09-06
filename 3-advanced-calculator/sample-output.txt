@@ -1,0 +1,8 @@
+=1249.50
+=0.11
+=98.00
+=0.00
+=2.60
+Unmatched right parenthes in input.
+=0.00
+=1.00
