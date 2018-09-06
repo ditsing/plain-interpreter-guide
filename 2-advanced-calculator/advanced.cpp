@@ -56,10 +56,12 @@ void process_last_operator() {
 
 /**
  * HOMEWORK 3 (Optional)
+ *
  * During testing you should have noticed that "^2" and "+1*2" are both valid
  * expressions for our current implementation. When an operand is not supplied,
  * it is considered 0. This can be confusing because "1/" will throw an "divided
  * by 0" error.
+ *
  * A good program should detect defects in input. How do we do that?
  */
 
@@ -87,6 +89,7 @@ int main() {
         case '/':
           /**
            * HOMEWORK 1
+           *
            * Complete this section.
            */
           break;
@@ -105,11 +108,14 @@ int main() {
     } else if (ch == '\n') {
       /**
        * HOMEWORK 2
+       *
        * Complete this section.
+       *
        * When seeing an newline charactor, we know that the input is complete
        * and now it is the time to process the whole expression.
        * Print the result after calculation.
-       * Clear all data structures so that we are all set for next.
+       *
+       * Clear all data structures so that we are all set for next input.
        */
     }
   }

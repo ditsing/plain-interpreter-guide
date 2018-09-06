@@ -62,15 +62,16 @@ int main() {
   /**
    * HOMEWORK 2: Errors in input
    * 
-   * Humans make mistakes and computers can help with them. You may have noticed
+   * Humans make mistakes and computers help correct them. You may have noticed
    * that our program produces wired result when the input is illegal. In some
    * cases we try to pop an element out of an empty stack, and the program
-   * crashes.
-   *
-   * A variable `error_mod` has been added for you.
+   * crashes. Instead, a good calculator should reject illegal inputs and point
+   * out what is wrong.
    *
    * Dealing with all errors in input is hard. In this homework, make sure our
    * calculator continues to work if there are more right parentheses than left.
+   *
+   * A variable `error_mod` has been created for you.
    */
   while ((ch = getchar()) != EOF) {
     if (isdigit(ch)) {
