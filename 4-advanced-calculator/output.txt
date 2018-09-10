@@ -1,0 +1,100 @@
+Caught overflow error: Divded by zero
+=-68.00
+Caught overflow error: Divded by zero
+=0.21
+Caught overflow error: Divded by zero
+=-7492598.17
+=-1.09
+=-5464434.00
+=-105.27
+=36254.74
+=-113.59
+=175656.79
+Caught overflow error: Divded by zero
+=-3467.87
+=-0.07
+=-785904.94
+=164.35
+=-351.15
+=-138.01
+=478.94
+=792.21
+=-216.79
+=683.98
+Caught overflow error: Divded by zero
+=84.25
+=-5659.00
+=-76.00
+=-6.77
+Caught overflow error: Divded by zero
+=1.00
+Caught overflow error: Divded by zero
+=-405.21
+=25272.79
+=8.29
+=-2063.49
+=-279.97
+=954.43
+=-39.00
+=-1130.21
+Caught overflow error: Divded by zero
+Caught overflow error: Divded by zero
+=4246.84
+=0.94
+=-1448935.70
+Caught overflow error: Divded by zero
+=-34.00
+=-6448.90
+=-57.98
+=64.01
+=133.91
+=-10829582.43
+=18486.54
+=228552.86
+Caught overflow error: Divded by zero
+=486016509.77
+=966.37
+=-71.00
+=-571748.71
+=-1.00
+=314481.54
+=14178.10
+=-1.00
+=222.01
+=-10.44
+=8886.05
+=1751918.33
+=-63.40
+=27593.87
+=497935.29
+=-5973065052051388497920.00
+=-515.97
+=19836180.21
+=-102.43
+=-8299.00
+=-342.94
+=-1842.60
+Caught overflow error: Divded by zero
+=100.20
+=66.74
+=-15814609.99
+=-476.63
+Caught overflow error: Divded by zero
+=12246632.25
+=1954.69
+=-22087.07
+=-13.00
+=-2847.32
+=166380.35
+=1313.26
+=2332.20
+=32768.02
+=52.43
+=50.37
+=18.15
+=-8626.00
+=92.69
+=-14.81
+=-32675.11
+=98.00
+=79.00

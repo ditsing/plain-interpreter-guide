@@ -1,0 +1,3 @@
+Caught range error: Cannot calculate non-integer power of negative value
+=-343.00
+Caught overflow error: Divded by zero
