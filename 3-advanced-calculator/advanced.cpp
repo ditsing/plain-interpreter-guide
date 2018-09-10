@@ -61,7 +61,7 @@ int main() {
   bool remaining_number = false;
   /**
    * HOMEWORK 2: Errors in input
-   * 
+   *
    * Humans make mistakes and computers help correct them. You may have noticed
    * that our program produces wired result when the input is illegal. In some
    * cases we try to pop an element out of an empty stack, and the program

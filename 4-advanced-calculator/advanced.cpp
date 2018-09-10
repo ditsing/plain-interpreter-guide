@@ -100,7 +100,7 @@ class PowExpr: public Expr {
   PowExpr(Expr* left, Expr* right) : left(left), right(right) {}
   double evaluate() const override {
     /**
-     * HOMEWORK 3: Exceptions.
+     * HOMEWORK 3: Exceptions
      *
      * Modify this method so that a `range_error` is thrown when instructed to
      * calculate non-integer power of negative values. For example, sqrt(-2),
