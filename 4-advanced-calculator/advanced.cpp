@@ -195,6 +195,14 @@ int main() {
       remaining_number = true;
     } else if (ch == '+' || ch == '-' || ch == '*' || ch == '/' || ch == '^'
         || ch == '(' || ch == ')' || ch == '~') {
+      /**
+       * MIDTERM*: Catch all errors in input
+       *
+       * Consider all possible inputs and detect the invalid ones. Report error
+       * if the input is invalid, with appropriate error messages.
+       *
+       * Come up with test data to cover as many cases as possible.
+       */
       if (remaining_number) {
         // We've got a whole number.
         num_stack.push_back(new Num(operand));
