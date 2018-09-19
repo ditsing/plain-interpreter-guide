@@ -232,8 +232,8 @@ Expr* parse_arith_expr(token (*lexer)()) {
           process_last_operator();
         }
         if (op_stack.empty()) {
-          // Error: expecting parenthese but not getting one.
-          throw domain_error("Unmatched right parenthes in input.\n");
+          // Error: expecting parenthesis but not getting one.
+          throw domain_error("Unmatched right parenthesis in input.\n");
         }
         // Remove '('
         op_stack.pop_back();
@@ -247,7 +247,7 @@ Expr* parse_arith_expr(token (*lexer)()) {
   }
   while (!op_stack.empty()) {
     if (op_stack.back() == '(') {
-      throw domain_error("Unmatched left parenthes in input.\n");
+      throw domain_error("Unmatched left parenthesis in input.\n");
     }
     process_last_operator();
   }

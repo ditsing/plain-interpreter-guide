@@ -251,8 +251,8 @@ int main() {
             process_last_operator();
           }
           if (op_stack.empty()) {
-            // Error: expecting parenthese but not getting one.
-            printf("Unmatched right parenthes in input.\n");
+            // Error: expecting parenthesis but not getting one.
+            printf("Unmatched right parenthesis in input.\n");
             error_mod = true;
             continue;
           }
