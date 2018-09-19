@@ -182,12 +182,12 @@ Expr* parse_arith_expr(token (*lexer)()) {
   bool expecting_number = true;
   while (t = lexer(), t.type != ';' && t.type) {
     if (expecting_number ^
-          (t.type == INTEGER_LITERAL || t.type == IDENTIFIER || t.type == '('
+          (t.type == INTEGER_LITERAL || || t.type == '('
            || is_unary_operator(t.type))) {
       throw domain_error("Consecutive numbers or operators found.");
     }
     expecting_number =
-      !(t.type == INTEGER_LITERAL || t.type == IDENTIFIER || t.type == ')');
+      !(t.type == INTEGER_LITERAL || t.type == ')');
 
     switch (t.type) {
       case INTEGER_LITERAL:
