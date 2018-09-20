@@ -1,7 +1,7 @@
 run: advanced
 	./advanced
 advanced: advanced.cpp
-	$(CXX) advanced.cpp -o advanced
+	$(CXX) advanced.cpp -o advanced -std=c++11
 test: input.txt output.txt advanced
 	./advanced < input.txt | diff -aq - output.txt
 input.txt: input-gen
