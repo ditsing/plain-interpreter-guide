@@ -120,7 +120,7 @@ vector<Expr*> num_stack;
  * Process the last operator in the stack.
  */
 void process_last_operator() {
-  // Special case for uniary operators.
+  // Special case for unary operators.
   if (op_stack.back() == '~') {
     op_stack.pop_back();
     Expr* operand = num_stack.back();
