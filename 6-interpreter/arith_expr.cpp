@@ -7,7 +7,6 @@
 #include <cmath>
 #include <vector>
 #include <stdexcept>
-#include <string>
 #include "lexer.h"
 #include "arith_expr.h"
 #include "interpreter.h"
@@ -17,7 +16,6 @@ using std::overflow_error;
 using std::range_error;
 using std::invalid_argument;
 using std::domain_error;
-using std::string;
 
 bool Expr::is_zero(double value) {
   return value < esp and value > -esp;
