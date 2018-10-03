@@ -12,10 +12,6 @@
 #include "interpreter.h"
 
 using std::vector;
-using std::overflow_error;
-using std::range_error;
-using std::invalid_argument;
-using std::domain_error;
 
 bool Expr::is_zero(double value) {
   return value < esp and value > -esp;
@@ -80,7 +76,7 @@ class DivExpr: public Expr {
     double left_value = left->evaluate();
     double right_value = right->evaluate();
     if (is_zero(right_value)) {
-      throw overflow_error("Divded by zero");
+      throw RuntimeError("Divded by zero");
     }
     return left_value / right_value;
   }
@@ -96,7 +92,8 @@ class PowExpr: public Expr {
     double left_value = left->evaluate();
     double right_value = right->evaluate();
     if (left_value < 0 && !is_zero(right_value - round(right_value))) {
-      throw range_error("Cannot calculate non-integer power of negative value");
+      throw RuntimeError(
+          "Cannot calculate non-integer power of negative value");
     }
     return pow(left->evaluate(), right->evaluate());
   }
@@ -121,7 +118,7 @@ void process_last_operator() {
   // Special case for unary operators.
   if (op_stack.back() == '~') {
     op_stack.pop_back();
-    Expr* operand = num_stack.back();
+    Expr *operand = num_stack.back();
     num_stack.pop_back();
     num_stack.push_back(new WavExpr(operand));
     return;
@@ -152,8 +149,10 @@ void process_last_operator() {
       result = new PowExpr(left_operand, right_operand);
       break;
     default:
-      // Should never happen.
-      break;
+      THROW_ERROR_FORMAT(
+          std::logic_error,
+          "Unexpected operator %c",
+          op_stack.back());
   }
   // Remove the processed operator from stack;
   op_stack.pop_back();
@@ -182,7 +181,11 @@ Expr* parse_arith_expr(token (*lexer)()) {
     if (expecting_number ^
           (t.type == INTEGER_LITERAL || t.type == '('
            || is_unary_operator(t.type))) {
-      throw domain_error("Consecutive numbers or operators found.");
+      THROW_ERROR_FORMAT_LINE(
+          CompilingError,
+          t,
+          "Consecutive numbers or operators found: %s",
+          t.str_val);
     }
     expecting_number =
       !(t.type == INTEGER_LITERAL || t.type == ')');
@@ -231,21 +234,25 @@ Expr* parse_arith_expr(token (*lexer)()) {
         }
         if (op_stack.empty()) {
           // Error: expecting parenthesis but not getting one.
-          throw domain_error("Unmatched right parenthesis in input.\n");
+          throw CompilingError("Unmatched right parenthesis in input");
         }
         // Remove '('
         op_stack.pop_back();
         break;
       default:
-        throw domain_error("Unexpected token.\n");
+        THROW_ERROR_FORMAT_LINE(
+            CompilingError,
+            t,
+            "Unexpected token with type %d",
+            t.type);
     }
   }
   if (expecting_number) {
-    throw domain_error("Missing operand.\n");
+    throw CompilingError("Missing operand");
   }
   while (!op_stack.empty()) {
     if (op_stack.back() == '(') {
-      throw domain_error("Unmatched left parenthesis in input.\n");
+      throw CompilingError("Unmatched left parenthesis in input");
     }
     process_last_operator();
   }
