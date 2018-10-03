@@ -2,7 +2,7 @@
 #include "lexer.h"
 
 token yylval;
-int yycharno = 0;
+int yycharno = 1;
 
 #define COUNT_CHAR { yycharno += yyleng; } while(0)
 #define YY_USER_ACTION COUNT_CHAR;
@@ -32,7 +32,7 @@ space       [ \t\r]
 }
 
 \n            {
-  yycharno = 0;
+  yycharno = 1;
   return ';';
 }
 

@@ -184,8 +184,8 @@ Expr* parse_arith_expr(token (*lexer)()) {
       THROW_ERROR_FORMAT_LINE(
           CompilingError,
           t,
-          "Consecutive numbers or operators found: %s",
-          t.str_val);
+          "Consecutive numbers or operators found: %d",
+          t.type);
     }
     expecting_number =
       !(t.type == INTEGER_LITERAL || t.type == ')');
