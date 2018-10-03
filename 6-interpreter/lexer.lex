@@ -2,13 +2,12 @@
 #include "lexer.h"
 
 token yylval;
-int yycharno = 1;
+int yycharno = 0;
 
 #define COUNT_CHAR { yycharno += yyleng; } while(0)
 #define YY_USER_ACTION COUNT_CHAR;
 %}
 
-id          [[::alpha::]_][[:alnum:]_]*
 int_const   0|([1-9][[:digit:]]*)
 operator    [+\-*/%^~();=]
 space       [ \t\r]
@@ -17,19 +16,6 @@ space       [ \t\r]
 
 "//"[^\n]*    {
   // Comment
-}
-
-"int"         {
-  return K_INTEGER_TYPE;
-}
-
-"double"      {
-  return K_DOUBLE_TYPE;
-}
-
-{id}          {
-  yylval.str_val = yytext;
-  return IDENTIFIER;
 }
 
 {int_const}   {
@@ -46,7 +32,7 @@ space       [ \t\r]
 }
 
 \n            {
-  yycharno = 1;
+  yycharno = 0;
   return ';';
 }
 
@@ -62,7 +48,7 @@ token lexer() {
 
   token t = yylval;
   t.line = yylineno;
-  t.column = yycharno;
+  t.column = yycharno - yyleng;
   t.type = ret;
 
   return t;

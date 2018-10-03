@@ -1,8 +1,8 @@
 # Interpreter
 interpreter: lexer.o interpreter.h interpreter.cpp lexer.h arith_expr.h arith_expr.o
-	$(CXX) interpreter.cpp lexer.o arith_expr.o -o interpreter
-lexer.cc: interpreter_lexer.lex
-	flex --noyywrap --yylineno -o lexer.cc interpreter_lexer.lex
+	$(CXX) interpreter.cpp lexer.o arith_expr.o -o interpreter -std=c++11
+lexer.cc: lexer.lex
+	flex --noyywrap --yylineno -o lexer.cc lexer.lex
 lexer.o: lexer.cc lexer.h
 	$(CXX) -c lexer.cc -o lexer.o
 arith_expr.o: arith_expr.cpp arith_expr.h interpreter.h

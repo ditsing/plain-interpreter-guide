@@ -1,4 +1,5 @@
 #include <cstdio>
+#include "lexer.h"
 #include "arith_expr.h"
 #include "interpreter.h"
 
