@@ -6,6 +6,10 @@
 int main() {
   Expr *e;
   while ((e = parse_arith_expr(lexer)) != nullptr) {
-    printf("%lf\n", e->evaluate());
+    try {
+      printf("%lf\n", e->evaluate());
+    } catch (const RuntimeError &e) {
+      printf("Runtime error: %s\n", e.what());
+    }
   }
 }
