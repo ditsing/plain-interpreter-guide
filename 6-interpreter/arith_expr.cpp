@@ -248,6 +248,10 @@ Expr* parse_arith_expr(token (*lexer)()) {
     }
   }
   if (expecting_number) {
+    if (num_stack.empty()) {
+      // We had no input.
+      return nullptr;
+    }
     throw CompilingError("Missing operand");
   }
   while (!op_stack.empty()) {
@@ -255,11 +259,6 @@ Expr* parse_arith_expr(token (*lexer)()) {
       throw CompilingError("Unmatched left parenthesis in input");
     }
     process_last_operator();
-  }
-
-  if (num_stack.empty()) {
-    // We had no input.
-    return nullptr;
   }
 
   Expr *expr = num_stack.back();
