@@ -192,7 +192,12 @@ Expr* parse_arith_expr(token (*lexer)()) {
 
     switch (t.type) {
       case INTEGER_LITERAL:
-        num_stack.push_back(new Num(t.int_val));
+        /**
+         * HOMEWORK 1: Integer literal
+         *
+         * Complete this section with actions need to be taken when the lexer
+         * returns an interger literal.
+         */
         break;
       case '(':
       case '~':
