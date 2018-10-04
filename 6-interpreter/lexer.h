@@ -3,11 +3,8 @@
 
 enum token_type {
   // 1 ~ 255 reserved for regular chars.
-  IDENTIFIER = 257,
-  INTEGER_LITERAL,
+  INTEGER_LITERAL = 258,
 
-  K_INTEGER_TYPE,
-  K_DOUBLE_TYPE,
 
   ERROR_LEXEME
 };
