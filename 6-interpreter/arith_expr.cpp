@@ -193,7 +193,7 @@ Expr* parse_arith_expr(token (*lexer)()) {
     switch (t.type) {
       case INTEGER_LITERAL:
         /**
-         * HOMEWORK 1: Integer literal
+         * HOMEWORK 1: Integer Literal
          *
          * Complete this section with actions need to be taken when the lexer
          * returns an interger literal.

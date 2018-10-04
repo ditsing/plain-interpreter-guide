@@ -5,7 +5,7 @@
 
 int main() {
   /**
-   * HOMEWORK 2: Main function
+   * HOMEWORK 2: Main Function
    *
    * Implement the main function. Call `parse_arith_expr` to parse each line as
    * an expression. Evaluate all the expressions and print out the result.
