@@ -242,6 +242,16 @@ Expr* parse_arith_expr(token (*lexer)(), Program *p) {
   token t;
   bool expecting_number = true;
   while (t = lexer(), t.type != ';' && t.type) {
+    // There are two states when parsing the expression, one is when we expects
+    // an operand in the next input, the other is when we expects an operator.
+    //
+    // Intially we start with an operand. The operand can be a number, or any
+    // expression enclosed in parentheses, or an expession prepeneded with a
+    // uniary operator, i.e. `~`. After the first operand, there must be an
+    // operator `+-*/^`. Then we need an operand again and the loop continues.
+    //
+    // The situation can be more complicated if we decide to support suffix
+    // uniary operators, e.g. factorial operator `!`.
     if (expecting_number ^
           (t.type == INTEGER_LITERAL || t.type == '('
            || is_unary_operator(t.type))) {
@@ -320,6 +330,8 @@ Expr* parse_arith_expr(token (*lexer)(), Program *p) {
     }
     throw CompilingError("Missing operand");
   }
+
+  // Process all remaining operators in the stack.
   while (!op_stack.empty()) {
     if (op_stack.back() == '(') {
       throw CompilingError("Unmatched left parenthesis in input");
@@ -327,6 +339,8 @@ Expr* parse_arith_expr(token (*lexer)(), Program *p) {
     process_last_operator();
   }
 
+  // We should have exactly one expression left.
+  // Throwing an logic_error if it is not the case might be more appropriate.
   Expr *expr = num_stack.back();
   num_stack.pop_back();
   return expr;
