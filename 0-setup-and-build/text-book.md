@@ -1,7 +1,7 @@
 0. Installation
 
 Nothing to be done here!
-Register Gitlab and get access to https://github.com/ditsing/plain-interpreter-guide.git.
+Register Github and get access to https://github.com/ditsing/plain-interpreter-guide.git.
 
 1. Command: git
 
